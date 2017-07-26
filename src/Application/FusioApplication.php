@@ -8,14 +8,14 @@ use BIT\Typo3SurfExtended\Task\WarmupScriptsTask;
 use TYPO3\Surf\Application\BaseApplication;
 use TYPO3\Surf\Domain\Model\Deployment;
 use TYPO3\Surf\Domain\Model\Workflow;
-use TYPO3\Surf\Task\Php\WebOpcacheResetCreateScriptTask;
-use TYPO3\Surf\Task\Php\WebOpcacheResetExecuteTask;
 
 /**
  * @author Christoph Bessei
  */
 class FusioApplication extends BaseApplication
 {
+    use ClearOpcacheTrait;
+
     /**
      * Extend BaseApplication with additional tasks:
      *
@@ -42,23 +42,6 @@ class FusioApplication extends BaseApplication
         // Warm up
         $workflow->addTask(WarmupScriptsTask::class, 'finalize', $this);
 
-        // Add clear opcache task
-        if ($this->isClearOpcacheEnabled()) {
-            $workflow->addTask(
-                WebOpcacheResetCreateScriptTask::class,
-                'package',
-                $this
-            );
-            $workflow->addTask(
-                WebOpcacheResetExecuteTask::class,
-                'switch',
-                $this
-            );
-        }
-    }
-
-    protected function isClearOpcacheEnabled(): bool
-    {
-        return $this->hasOption('clearOpcache') && $this->getOption('clearOpcache');
+        $this->registerClearOpcacheTaskIfEnabled($workflow, $deployment);
     }
 }
