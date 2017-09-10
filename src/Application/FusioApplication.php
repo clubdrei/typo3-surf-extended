@@ -3,23 +3,21 @@ namespace BIT\Typo3SurfExtended\Application;
 
 use BIT\Typo3SurfExtended\Task\FusioDeployTask;
 use BIT\Typo3SurfExtended\Task\FusioInstallTask;
-use BIT\Typo3SurfExtended\Task\MergeSharedFoldersTask;
-use BIT\Typo3SurfExtended\Task\WarmupScriptsTask;
-use TYPO3\Surf\Application\BaseApplication;
 use TYPO3\Surf\Domain\Model\Deployment;
 use TYPO3\Surf\Domain\Model\Workflow;
 
 /**
+ * TYPO3 Surf application for http://fusio-project.org/
  * @author Christoph Bessei
  */
-class FusioApplication extends BaseApplication
+class FusioApplication extends PhpApplication
 {
     use ClearOpcacheTrait;
 
     /**
      * Extend BaseApplication with additional tasks:
-     *
-     *
+     * * Fusio install (during initial deployment)
+     * * Fusio deploy
      *
      * @param \TYPO3\Surf\Domain\Model\Workflow $workflow
      * @param \TYPO3\Surf\Domain\Model\Deployment $deployment
@@ -35,13 +33,5 @@ class FusioApplication extends BaseApplication
         if ($deployment->hasOption('initialDeployment') && $deployment->getOption('initialDeployment')) {
             $workflow->beforeTask(FusioDeployTask::class, [FusioInstallTask::class], $this);
         }
-
-        // Merge shared folders/files on node with folders/files in VCS
-        $workflow->afterStage('update', [MergeSharedFoldersTask::class,], $this);
-
-        // Warm up
-        $workflow->addTask(WarmupScriptsTask::class, 'finalize', $this);
-
-        $this->registerClearOpcacheTaskIfEnabled($workflow, $deployment);
     }
 }
