@@ -2,9 +2,11 @@
 namespace BIT\Typo3SurfExtended\Application;
 
 use BIT\Typo3SurfExtended\Task\RsyncConfigurationTask;
+use BIT\Typo3SurfExtended\Task\WarmupScriptsTask;
 use TYPO3\Surf\Application\TYPO3\CMS;
 use TYPO3\Surf\Domain\Model\Deployment;
 use TYPO3\Surf\Domain\Model\Workflow;
+use TYPO3\Surf\Task\TYPO3\CMS\FlushCachesTask;
 use TYPO3\Surf\Task\TYPO3\CMS\SymlinkDataTask;
 
 /**
@@ -20,6 +22,8 @@ class Typo3CmsApplication extends CMS
 
         // Add configuration task (Copy config from /config to sharedFolder/Configuration)
         $workflow->afterTask(SymlinkDataTask::class, [RsyncConfigurationTask::class], $this);
+
+        $workflow->afterTask(FlushCachesTask::class, [WarmupScriptsTask::class], $this);
 
         $this->registerClearOpcacheTaskIfEnabled($workflow, $deployment);
     }
