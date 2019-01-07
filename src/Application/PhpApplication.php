@@ -28,8 +28,8 @@ class PhpApplication extends BaseApplication
         // Merge shared folders/files on node with folders/files in VCS
         $workflow->afterStage('update', [MergeSharedFoldersTask::class,], $this);
 
-        // Warm up
-        $workflow->addTask(WarmupScriptsTask::class, 'finalize', $this);
+        // Execute warm up scripts after switch
+        $workflow->afterStage('switch', WarmupScriptsTask::class, $this);
 
         $this->registerClearOpcacheTaskIfEnabled($workflow, $deployment);
     }
