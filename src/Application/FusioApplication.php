@@ -23,7 +23,7 @@ class FusioApplication extends PhpApplication
      * @param \TYPO3\Surf\Domain\Model\Deployment $deployment
      * @return void
      */
-    public function registerTasks(Workflow $workflow, Deployment $deployment)
+    public function registerTasks(Workflow $workflow, Deployment $deployment): void
     {
         parent::registerTasks($workflow, $deployment);
 

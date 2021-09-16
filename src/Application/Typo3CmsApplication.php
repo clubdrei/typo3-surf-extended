@@ -19,7 +19,7 @@ class Typo3CmsApplication extends CMS
 {
     use ClearOpcacheTrait;
 
-    public function registerTasks(Workflow $workflow, Deployment $deployment)
+    public function registerTasks(Workflow $workflow, Deployment $deployment): void
     {
         parent::registerTasks($workflow, $deployment);
 
