@@ -35,7 +35,7 @@ class CompileExtTemplateAssetsTask extends LocalShellTask
         }
         if (!isset($options['command'])) {
             $options['command'] = [
-                'cd '.$assetDir.' && npm install',
+                'cd '.$assetDir.' && npm ci',
                 'cd '.$assetDir.' && grunt dist',
             ];
         }
