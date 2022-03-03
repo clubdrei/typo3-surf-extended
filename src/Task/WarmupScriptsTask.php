@@ -9,7 +9,7 @@ use TYPO3\Surf\Task\ShellTask;
 /**
  * Execute scripts for warmup
  *
- * @author Christoph Bessei
+ * @author clubdrei.com Medienagentur GmbH
  */
 class WarmupScriptsTask extends ShellTask
 {

@@ -7,7 +7,7 @@ use TYPO3\Surf\Domain\Model\Node;
 use TYPO3\Surf\Task\ShellTask;
 
 /**
- * @author Christoph Bessei
+ * @author clubdrei.com Medienagentur GmbH
  */
 class FusioDeployTask extends ShellTask
 {

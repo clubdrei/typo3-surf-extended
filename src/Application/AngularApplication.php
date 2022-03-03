@@ -8,7 +8,7 @@ use TYPO3\Surf\Domain\Model\Deployment;
 use TYPO3\Surf\Domain\Model\Workflow;
 
 /**
- * @author Christoph Bessei
+ * @author clubdrei.com Medienagentur GmbH
  */
 class AngularApplication extends BaseApplication
 {

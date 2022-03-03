@@ -12,7 +12,7 @@ use TYPO3\Surf\Task\ShellTask;
  * This allows you to have default files (e.g. config) in VCS and a more specific version on the node
  * The version on the node must be stored inside the shared folder
  *
- * @author Christoph Bessei
+ * @author clubdrei.com Medienagentur GmbH
  */
 class MergeSharedFoldersTask extends ShellTask
 {

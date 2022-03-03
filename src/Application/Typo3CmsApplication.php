@@ -13,7 +13,7 @@ use TYPO3\Surf\Task\TYPO3\CMS\FlushCachesTask;
 use TYPO3\Surf\Task\TYPO3\CMS\SymlinkDataTask;
 
 /**
- * @author Christoph Bessei
+ * @author clubdrei.com Medienagentur GmbH
  */
 class Typo3CmsApplication extends CMS
 {

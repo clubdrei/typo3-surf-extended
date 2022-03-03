@@ -8,7 +8,7 @@ use TYPO3\Surf\Domain\Model\Workflow;
 
 /**
  * TYPO3 Surf application for http://fusio-project.org/
- * @author Christoph Bessei
+ * @author clubdrei.com Medienagentur GmbH
  */
 class FusioApplication extends PhpApplication
 {

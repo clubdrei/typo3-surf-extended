@@ -7,7 +7,7 @@ use TYPO3\Surf\Task\Php\WebOpcacheResetCreateScriptTask;
 use TYPO3\Surf\Task\Php\WebOpcacheResetExecuteTask;
 
 /**
- * @author Christoph Bessei
+ * @author clubdrei.com Medienagentur GmbH
  */
 trait ClearOpcacheTrait
 {

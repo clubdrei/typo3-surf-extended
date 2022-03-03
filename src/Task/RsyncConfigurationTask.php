@@ -1,6 +1,6 @@
 <?php
 /**
- * @author Christoph Bessei
+ * @author clubdrei.com Medienagentur GmbH
  */
 
 namespace BIT\Typo3SurfExtended\Task;
