@@ -1,7 +1,7 @@
 <?php
 namespace BIT\Typo3SurfExtended\Task;
 
-use TYPO3\Flow\Utility\Files;
+use Neos\Utility\Files;
 use TYPO3\Surf\Domain\Model\Application;
 use TYPO3\Surf\Domain\Model\Deployment;
 use TYPO3\Surf\Domain\Model\Node;
@@ -30,7 +30,7 @@ class MergeSharedFoldersTask extends ShellTask
     {
         if (!empty($options['mergeSharedFolders'])) {
             $sharedPath = $application->getSharedPath();
-            $releasePath = $deployment->getApplicationReleasePath($application);
+            $releasePath = $deployment->getApplicationReleasePath($node);
 
             foreach ($options['mergeSharedFolders'] ?? [] as $mergeFolder) {
                 $sourcePath = Files::concatenatePaths([$sharedPath, $mergeFolder]) . '/';

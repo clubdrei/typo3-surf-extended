@@ -31,7 +31,7 @@ class RsyncConfigurationTask extends Task implements ShellCommandServiceAwareInt
         $sharedPath = $application->getSharedPath();
         $sharedConfigurationPath = escapeshellarg($sharedPath . '/Configuration/');
 
-        $releasePath = $deployment->getApplicationReleasePath($application);
+        $releasePath = $deployment->getApplicationReleasePath($node);
         $targetConfigurationPath = escapeshellarg($releasePath . '/config/');
 
         $rsyncWithoutOverwriteCommand = 'rsync -r --ignore-existing --include=*.php ';
