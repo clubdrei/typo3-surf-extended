@@ -26,7 +26,7 @@ class MergeSharedFoldersTask extends ShellTask
      * @return void
      * @throws \TYPO3\Surf\Exception\InvalidConfigurationException
      */
-    public function execute(Node $node, Application $application, Deployment $deployment, array $options = [])
+    public function execute(Node $node, Application $application, Deployment $deployment, array $options = []): void
     {
         if (!empty($options['mergeSharedFolders'])) {
             $sharedPath = $application->getSharedPath();

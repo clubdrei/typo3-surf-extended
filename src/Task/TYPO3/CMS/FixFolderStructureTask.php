@@ -19,7 +19,7 @@ class FixFolderStructureTask extends ShellTask
      * @return void
      * @throws \TYPO3\Surf\Exception\InvalidConfigurationException
      */
-    public function execute(Node $node, Application $application, Deployment $deployment, array $options = [])
+    public function execute(Node $node, Application $application, Deployment $deployment, array $options = []): void
     {
         $options['command'] = 'cd {releasePath}/ && ./vendor/bin/typo3cms install:fixfolderstructure';
         parent::execute($node, $application, $deployment, $options);

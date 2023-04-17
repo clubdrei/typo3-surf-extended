@@ -22,7 +22,7 @@ class WarmupScriptsTask extends ShellTask
      * @return void
      * @throws \TYPO3\Surf\Exception\InvalidConfigurationException
      */
-    public function execute(Node $node, Application $application, Deployment $deployment, array $options = [])
+    public function execute(Node $node, Application $application, Deployment $deployment, array $options = []): void
     {
         foreach ($options['warmupScripts'] ?? [] as $warmupScript) {
             $options['command'] = $warmupScript;

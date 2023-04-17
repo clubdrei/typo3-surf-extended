@@ -27,7 +27,7 @@ class CompileExtTemplateAssetsTask extends LocalShellTask
      * @param array $options
      * @throws \TYPO3\Surf\Exception\InvalidConfigurationException
      */
-    public function execute(Node $node, Application $application, Deployment $deployment, array $options = [])
+    public function execute(Node $node, Application $application, Deployment $deployment, array $options = []): void
     {
         $assetDir = static::ASSETS_DIR;
         if (!empty($options['assetDir'])) {

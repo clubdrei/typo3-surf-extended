@@ -24,7 +24,7 @@ class FusioInstallTask extends ShellTask
      * @return void
      * @throws \TYPO3\Surf\Exception\InvalidConfigurationException
      */
-    public function execute(Node $node, Application $application, Deployment $deployment, array $options = [])
+    public function execute(Node $node, Application $application, Deployment $deployment, array $options = []): void
     {
         if (empty($options['command'])) {
             // Make files in bin executable and start fusio deploy

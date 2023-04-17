@@ -52,7 +52,7 @@ class RsyncConfigurationTask extends Task implements ShellCommandServiceAwareInt
      * @param array $options
      * @return void
      */
-    public function simulate(Node $node, Application $application, Deployment $deployment, array $options = [])
+    public function simulate(Node $node, Application $application, Deployment $deployment, array $options = []): void
     {
         $this->execute($node, $application, $deployment, $options);
     }
