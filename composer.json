@@ -12,7 +12,7 @@
         "php": "^7.4 || ^8.0"
     },
     "require-dev": {
-        "typo3/surf": "^3.0.1"
+        "typo3/surf": "^3.3.11"
     },
     "autoload": {
         "psr-4": {
