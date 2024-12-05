@@ -16,7 +16,7 @@ use TYPO3\Surf\Task\LocalShellTask;
  */
 class CompileExtTemplateAssetsTask extends LocalShellTask
 {
-    protected const ASSETS_DIR = '{workspacePath}/public/typo3conf/ext/template/Resources/Public/Assets/Src/';
+    protected const ASSETS_DIR = '{workspacePath}/packages/template/Resources/Public/Assets/Src/';
 
     /**
      * Executes this action
