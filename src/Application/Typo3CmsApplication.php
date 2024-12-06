@@ -21,6 +21,11 @@ class Typo3CmsApplication extends CMS
 
     public function registerTasks(Workflow $workflow, Deployment $deployment): void
     {
+        // Starting from helhum/typo3-console >= 8.0.0, there's no vendor/bin/typo3cms anymore.
+        // Instead, the normal TYPO3 binary should be used: https://github.com/TYPO3-Console/TYPO3-Console/releases/tag/v8.0.0
+        // TYPO3 Surf sadly didn't update the path in src/Application/TYPO3/CMS.php yet, so we fix it here.
+        $this->setOption('scriptFileName', 'vendor/bin/typo3');
+
         parent::registerTasks($workflow, $deployment);
 
         // Compile assets before transfer
