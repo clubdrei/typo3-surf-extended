@@ -21,7 +21,7 @@ class FixFolderStructureTask extends ShellTask
      */
     public function execute(Node $node, Application $application, Deployment $deployment, array $options = []): void
     {
-        $options['command'] = 'cd {releasePath}/ && ./vendor/bin/typo3cms install:fixfolderstructure';
+        $options['command'] = 'cd {releasePath}/ && ./vendor/bin/typo3 install:fixfolderstructure';
         parent::execute($node, $application, $deployment, $options);
     }
 }
