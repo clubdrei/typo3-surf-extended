@@ -1,0 +1,17 @@
+name: "Update packagist.org"
+on:
+  push:
+    tags:
+      - '**'
+jobs:
+  update-packagist:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Send request to update-package endpoint"
+        run: |
+          curl \
+            -s -o /dev/null \
+            -X POST \
+            -H "Content-Type: application/json" \
+            "https://packagist.org/api/update-package?username=${{ secrets.CI_PRODUCTION_PACKAGIST_USERNAME }}&apiToken=${{ secrets.CI_PRODUCTION_PACKAGIST_SAFE_API_TOKEN }}" \
+            -d '{"repository": "https://github.com/${{ github.repository }}"}'
